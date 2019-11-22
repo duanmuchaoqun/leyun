@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<!--uc强制竖屏-->
+	<meta name="screen-orientation" content="portrait">
+	<!--QQ强制竖屏-->
+	<meta name="x5-orientation" content="portrait">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<link rel="stylesheet" href="css/public.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>帮你挑</title>
+	<style>
+		.hd {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 100;
+		}
+
+		.pick_content {
+			top: 1.8rem;
+			left: 0;
+		}
+	</style>
+</head>
+
+<body class="bg_color03">
+	<div class="hd">
+		<a href=""><img src="images/public_lt.png" alt=""></a>
+		<h4>帮你挑</h4>
+	</div>
+	<div class="pick_content">
+		<img class="pick_bg" src="images/pick_bg.png" alt="">
+		<div class="pick_subject">
+			<h4><img src="images/pick_icon01.png" alt="">选择性别</h4>
+			<ul class="clearfix">
+				<li class="pick_on">不限</li>
+				<li>男生</li>
+				<li>女生</li>
+			</ul>
+			<h4><img src="images/pick_icon02.png" alt="">选择年龄</h4>
+			<ul class="clearfix">
+				<li class="pick_on">不限</li>
+				<li>1-2</li>
+				<li>3-5</li>
+				<li>6-8</li>
+				<li>8以上</li>
+			</ul>
+			<h4><img src="images/pick_icon03.png" alt="">选择兴趣</h4>
+			<ul class="clearfix">
+				<li class="pick_on">不限</li>
+				<li>忍者</li>
+				<li>太空</li>
+				<li>机器人</li>
+				<li>交通工具</li>
+				<li>忍者</li>
+				<li>太空</li>
+				<li>忍者</li>
+				<li>太空</li>
+				<li>忍者</li>
+				<li>太空</li>
+				<li>忍者</li>
+				<li>太空</li>
+				<li>忍者</li>
+				<li>太空</li>
+				<li>忍者</li>
+				<li>太空</li>
+			</ul>
+			<div class="pick_confirm">
+				<p>
+					<img src="images/pick_btn.png" alt="">
+					<span>开始搜索</span>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/rem.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+		$(function () {
+			$(".pick_subject ul li").click(function () {
+				$(this).addClass("pick_on");
+				$(this).siblings().removeClass("pick_on");
+			})
+		})
+	</script>
+</body>
+
+</html>

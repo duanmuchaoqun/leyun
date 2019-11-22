@@ -1,0 +1,30 @@
+public.css  公共样式
+style.css   样式表1
+
+页面名称：
+首页        index
+颗粒中心    grain
+消费记录    consumeList
+获得记录    getList
+兑换中心    exchange
+
+帮你挑选择  pickChoose
+帮你挑列表  pickList
+
+
+卡券包      card              card.css
+签到抽奖    luck             
+我的分享    share             share.css
+权益说明    equity            equity.css
+玩乐秀      playShow.html     playShow.css
+商品兑换    shopExchange      shopExchange.css
+结果页      result            result.css
+预售中心    orderCenter
+预售详情    orderDetail
+折扣商品    discount
+折扣商品详情 discount_Detail
+我的订单     myOrder
+手机绑定    binding
+个人信息     information
+订单详情     myOrderDetail
+作品发布     PublicationWorks

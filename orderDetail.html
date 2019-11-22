@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <!--uc强制竖屏-->
+    <meta name="screen-orientation" content="portrait">
+    <!--QQ强制竖屏-->
+    <meta name="x5-orientation" content="portrait">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <link rel="stylesheet" href="css/public.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>预售详情</title>
+</head>
+
+<body class='bg_color01'>
+    <div class="hd">
+        <a href=""><img src="images/public_lt.png" alt=""></a>
+        <h4>预售详情</h4>
+    </div>
+    <span class="exchange_content">
+        <p><img src="./images/orderDetail_bg.png" alt=""></p>
+
+        <!-- 库存倒计时部分 -->
+        <div class='exchange_countDown' >
+            <img src="./images/orderDetail_line.png" alt="">
+            <h5><span>当前库存剩余</span> <b>23</b>件</h5>
+            <p><a>预售进行中</a> <b>距结束 	<span class="container timeBar ys1" data="600" ></span></b></p>
+        </div>
+        <!-- 库存倒计时预约部分 -->
+        <h6 class='exchange_order' style='display: none;'><span>2019年12月27日</span>开始预约</h6>
+
+        <h3 class='exchange_introduce exchange_introduce1'>复活节兔子 <span>黄金以上会员</span>
+            <p><b>官方售价：<span>2999.00</span> </b>
+                <b>编码：<span>35628998</span> </b>
+                <b>系列：<span>方头仔系列</span> </b>
+            </p>
+        </h3>
+        <b><span>上市时间</span>2019年12月27日</b>
+        <div class='exchange_address'>
+            <p><img src="./images/exchange_shop.png" alt=""><span>提货上门</span></p>
+            <div>
+                <img src="./images/exchange_map.png" alt="">
+                <h3>南京江宁景sfhkshfkshfshkhfkshfghskhgsjdfkf峰店<p>江苏省南京市江宁区双龙大道1698号</p>
+                </h3>
+                <a href="##"><span>更改</span><img src="./images/exchange_Rarrow.png" alt=""></a>
+            </div>
+        </div>
+        <h3 class='exchange_title'><img src="./images/exchange_title_icon1.png" alt=""><span>商品详情</span><img
+                src="./images/exchange_title_icon2.png" alt=""></h3>
+                <div class="exchange_bg">
+                    <img src="./images/LEGO_logo.png" class='exchang_img'>
+                </div>
+        <button class='exchange_btn' style='display: none;'>
+            <h3>支付<span>100</span>颗粒进行预约</h3>
+        </button>
+        <!-- 灰色的按钮1 -->
+        <button class='exchange_btn exchange_btn1' style='display: none;'>
+            <h3>会员等级不足</h3>
+        </button>
+        <!--灰色的按钮2  -->
+        <button class='exchange_btn exchange_btn1'>
+            <h3>颗粒不足</h3>
+        </button>
+    </div>
+
+
+    <script src="js/rem.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src='js/countdown_jquery-2.1.1.min.js'></script>
+    <script src="js/countdown.js"></script>
+    <script>
+	$(function(){
+		$(".timeBar").each(function () {
+			$(this).countdownsync({
+				dayTag: "",
+				hourTag: "<label class='tt hh dib vam'>00</label><span>:</span>",
+				minTag: "<label class='tt mm dib vam'>00</label><span>:</span>",
+				secTag: "<label class='tt ss dib vam'>00</label><span></span>",
+				dayClass: ".dd",
+				hourClass: ".hh",
+				minClass: ".mm",
+				secClass: ".ss",
+				isDefault: false,
+				showTemp:1
+
+			}, function () {
+				location.reload();
+			});
+		});
+	});
+    </script>
+</body>
+
+</html>

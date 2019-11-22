@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<!--uc强制竖屏-->
+	<meta name="screen-orientation" content="portrait">
+	<!--QQ强制竖屏-->
+	<meta name="x5-orientation" content="portrait">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/public.css" />
+	<link rel="stylesheet" href="css/style.css">
+	<title>首页</title>
+</head>
+
+<body>
+	<div class="hd">
+		<h4>会员中心</h4>
+	</div>
+	<!--头部-->
+	<div class="index_hd">
+		<img class="index_hd_bg" src="images/index_hd.png" alt="">
+		<img class="index_hd_img" src="images/index_head.png" alt="">
+		<h4>花生<img src="images/index_sex01.png" alt=""></h4>
+		<p>拥有颗粒:<span>216</span></p>
+	</div>
+	<!--名片-->
+	<div class="index_setting">
+		<img class="index_banner" src="images/index_banner.png" alt="">
+		<h6>当前等级</h6>
+		<h1>白丁</h1>
+		<span class="index_sett_rt">换个封面</span>
+		<div class="index_progress">
+			<div class="index_car">
+				<img src="images/index_car.png" alt="">
+			</div>
+			<img class="index_road" src="images/index_road.png" alt="">
+			<h4>
+				<p><span>220</span>颗粒</p>
+				<p><span>500</span>颗粒晋升<span>秀才</span></p>
+			</h4>
+			<h5>已打败<span>18.5%</span>的粉丝</h5>
+		</div>
+	</div>
+	<!--九宫格-->
+	<ul class="index_grid clearfix">
+		<a href="">
+			<li>
+				<img src="images/index_icon01.png" alt="">
+				<p>签到抽奖</p>
+			</li>
+		</a>
+		<a href="">
+			<li>
+				<img src="images/index_icon02.png" alt="">
+				<p>我的分享</p>
+			</li>
+		</a>
+		<a href="">
+			<li>
+				<img src="images/index_icon03.png" alt="">
+				<p>颗粒中心</p>
+			</li>
+		</a>
+		<a href="">
+			<li>
+				<img src="images/index_icon04.png" alt="">
+				<p>权益说明</p>
+			</li>
+		</a>
+		<a href="">
+			<li>
+				<img src="images/index_icon05.png" alt="">
+				<p>兑换中心</p>
+			</li>
+		</a>
+		<a href="">
+			<li>
+				<img src="images/index_icon06.png" alt="">
+				<p>手机绑定</p>
+			</li>
+		</a>
+		<a href="">
+			<li>
+				<img src="images/index_icon07.png" alt="">
+				<p>卡券包</p>
+			</li>
+		</a>
+		<a href="">
+			<li>
+				<img src="images/index_icon08.png" alt="">
+				<p>玩乐秀</p>
+			</li>
+		</a>
+		<a href="">
+			<li>
+				<img src="images/index_icon09.png" alt="">
+				<p>帮你挑</p>
+			</li>
+		</a>
+	</ul>
+	<div class="mask"></div>
+	<div class="index_cover2" style='display:none'>
+		<h4>左右切换试试~</h4>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="images/index_banner.png" alt=""></div>
+				<div class="swiper-slide"><img src="images/index_banner.png" alt=""></div>
+				<div class="swiper-slide"><img src="images/index_banner.png" alt=""></div>
+				<div class="swiper-slide"><img src="images/index_banner.png" alt=""></div>
+				<div class="swiper-slide"><img src="images/index_banner.png" alt=""></div>
+			</div>
+			<!-- Add Pagination -->
+			<!-- <div class="swiper-pagination swiper-pagination-bullets"></div> -->
+		</div>
+		<div class="index_cover_btn2" >
+			<img src="images/index_cover_btn.png" alt="">
+			<p>保存为封面</p>
+		</div>
+	</div>
+
+	<script src="js/rem.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script>
+		var swiper = new Swiper('.swiper-container', {
+			effect: 'coverflow',
+			grabCursor: true,
+			centeredSlides: true,
+			slidesPerView: 'auto',
+			initialSlide: 1,//默认第二个
+			coverflowEffect: {
+				rotate: 50,
+				stretch: 0,
+				depth: 100,
+				modifier: 1,
+				slideShadows: true,
+			},
+			observer: true,
+			observeParents: true
+			// pagination: {
+			// 	el: '.swiper-pagination',
+			// },
+		});
+
+		$(".index_sett_rt").click(function () {
+            $(".mask").addClass("mask--visible");
+            $("html,body").css("overflow", "hidden");
+            $(".index_cover2").css("display", "block");
+        });
+        $(".index_cover_btn2").click(function () {
+            $(".mask").removeClass("mask--visible");
+            $("html,body").css("overflow", "auto");
+            $(".index_cover2").css("display", "none");
+        });
+	</script>
+</body>
+
+</html>

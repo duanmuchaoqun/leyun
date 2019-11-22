@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<!--uc强制竖屏-->
+	<meta name="screen-orientation" content="portrait">
+	<!--QQ强制竖屏-->
+	<meta name="x5-orientation" content="portrait">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<link rel="stylesheet" href="css/public.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="dist/dropload.css">
+	<title>帮你挑</title>
+	<style>
+		a:hover {
+			color: #000;
+			text-decoration: none;
+		}
+	</style>
+</head>
+
+<body class="bg_color01">
+	<div class="hd">
+		<a href=""><img src="images/public_lt.png" alt=""></a>
+		<h4>帮你挑</h4>
+	</div>
+	<div class="pick_hd">
+		<ul>
+			<li>
+				<h4>已选条件</h4>
+				<p><span>男生</span><span>3-5岁</span><span>忍者、漫威、太空、交通工具</span></p>
+			</li>
+		</ul>
+	</div>
+	<div class="content">
+		<div class="lists">
+			<a class="item" href="#">
+				<img src="images/ex_good.png" alt="">
+				<h6>编号：<span>60224</span></h6>
+				<h2><span>￥</span>2890</h2>
+			</a>
+			<a class="item" href="#">
+				<img src="images/ex_good.png" alt="">
+				<h6>编号：<span>60224</span></h6>
+				<h2><span>￥</span>2890</h2>
+			</a>
+			<a class="item" href="#">
+				<img src="images/ex_good.png" alt="">
+				<h6>编号：<span>60224</span></h6>
+				<h2><span>￥</span>2890</h2>
+			</a>
+			<a class="item" href="#">
+				<img src="images/ex_good.png" alt="">
+				<h6>编号：<span>60224</span></h6>
+				<h2><span>￥</span>2890</h2>
+			</a>
+			<a class="item" href="#">
+				<img src="images/ex_good.png" alt="">
+				<h6>编号：<span>60224</span></h6>
+				<h2><span>￥</span>2890</h2>
+			</a>
+			<a class="item" href="#">
+				<img src="images/ex_good.png" alt="">
+				<h6>编号：<span>60224</span></h6>
+				<h2><span>￥</span>2890</h2>
+			</a>
+			<a class="item" href="#">
+				<img src="images/ex_good.png" alt="">
+				<h6>编号：<span>60224</span></h6>
+				<h2><span>￥</span>2890</h2>
+			</a>
+			<a class="item" href="#">
+				<img src="images/ex_good.png" alt="">
+				<h6>编号：<span>60224</span></h6>
+				<h2><span>￥</span>2890</h2>
+			</a>
+		</div>
+	</div>
+
+	<script src="js/rem.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<!-- 加载的js -->
+	<!-- <script src="js/zepto.min.js"></script> -->
+	<script src="dist/dropload.min.js"></script>
+	<script>
+		$(function () {
+			var counter = 0;
+			// 每页展示4个
+			var num = 4;
+			var pageStart = 0,
+				pageEnd = 0;
+
+			// dropload
+			$('.content').dropload({
+				scrollArea: window,
+				domUp: {
+					domClass: 'dropload-up',
+					domRefresh: '<div class="dropload-refresh">↓下拉刷新-自定义内容</div>',
+					domUpdate: '<div class="dropload-update">↑释放更新-自定义内容</div>',
+					domLoad: '<div class="dropload-load"><span class="loading"></span>加载中-自定义内容...</div>'
+				},
+				domDown: {
+					domClass: 'dropload-down',
+					domRefresh: '<div class="dropload-refresh">↑上拉加载更多-自定义内容</div>',
+					domLoad: '<div class="dropload-load"><span class="loading"></span>加载中-自定义内容...</div>',
+					domNoData: '<div class="dropload-noData">暂无数据-自定义内容</div>'
+				},
+				loadUpFn: function (me) {
+					$.ajax({
+						type: 'GET',
+						url: 'json/update.json',
+						dataType: 'json',
+						success: function (data) {
+							var result = '';
+							for (var i = 0; i < data.lists.length; i++) {
+								result += '<a class="item opacity" href="' + data.lists[i]
+									.link + '">' +
+									'<img src="' + data.lists[i].pic + '" alt="">' +
+									'<h3>' + data.lists[i].title + '</h3>' +
+									'<span class="date">' + data.lists[i].date + '</span>' +
+									'</a>';
+							}
+							// 为了测试，延迟1秒加载
+							setTimeout(function () {
+								$('.lists').html(result);
+								// 每次数据加载完，必须重置
+								me.resetload();
+								// 重置索引值，重新拼接more.json数据
+								counter = 0;
+								// 解锁
+								me.unlock();
+								me.noData(false);
+							}, 1000);
+						},
+						error: function (xhr, type) {
+							alert('Ajax error!');
+							// 即使加载出错，也得重置
+							me.resetload();
+						}
+					});
+				},
+				loadDownFn: function (me) {
+					$.ajax({
+						type: 'GET',
+						url: 'json/more.json',
+						dataType: 'json',
+						success: function (data) {
+							var result = '';
+							counter++;
+							pageEnd = num * counter;
+							pageStart = pageEnd - num;
+
+							for (var i = pageStart; i < pageEnd; i++) {
+								result += '<a class="item opacity" href="' + data.lists[i]
+									.link + '">' +
+									'<img src="' + data.lists[i].pic + '" alt="">' +
+									'<h3>' + data.lists[i].title + '</h3>' +
+									'<span class="date">' + data.lists[i].date + '</span>' +
+									'</a>';
+								if ((i + 1) >= data.lists.length) {
+									// 锁定
+									me.lock();
+									// 无数据
+									me.noData();
+									break;
+								}
+							}
+							// 为了测试，延迟1秒加载
+							setTimeout(function () {
+								$('.lists').append(result);
+								// 每次数据加载完，必须重置
+								me.resetload();
+							}, 1000);
+						},
+						error: function (xhr, type) {
+							alert('Ajax error!');
+							// 即使加载出错，也得重置
+							me.resetload();
+						}
+					});
+				},
+				threshold: 50
+			});
+		});
+	</script>
+</body>
+
+</html>

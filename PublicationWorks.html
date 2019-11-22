@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <!--uc强制竖屏-->
+    <meta name="screen-orientation" content="portrait">
+    <!--QQ强制竖屏-->
+    <meta name="x5-orientation" content="portrait">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <link rel="stylesheet" href="css/public.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>作品发布</title>
+    <style>
+        textarea {
+            width: 100%;
+            height: 7rem;
+            border: none;
+            background: #F5F5F5;
+            outline: none;
+            color: #000;
+            font-size: .5rem;
+            text-align: left;
+        }
+
+        textarea::-webkit-input-placeholder {
+            color: #BBBBBB;
+        }
+
+        textarea:-moz-placeholder {
+            color: #BBBBBB;
+        }
+    </style>
+</head>
+
+<body class='bg_color01'>
+    <div class="hd">
+        <a href=""><img src="images/public_lt.png" alt=""></a>
+        <h4>作品发布</h4>
+    </div>
+
+    <div class='Works_content'>
+        <textarea placeholder="这一刻的想法..."></textarea>
+        <ul class="after_tab">
+            <li>
+                <div class="img-avatar">
+                  
+                        <img src="images/my_sale_up.png" id="myPic1">
+                        <input type="file" id="file1" name="file" onchange="showPicture1(this.value)"
+                            style="height: 66px;">
+                        <span class="s1 add-image-btn_cancel"></span>
+                   
+
+
+                    <img src="images/my_sale_up.png" id="myPic2">
+                    <input type="file" id="file2" name="file" onchange="showPicture2(this.value)" style="height: 66px;">
+                    <span class="s2 add-image-btn_cancel"></span>
+
+                    <img src="images/my_sale_up.png" id="myPic3">
+                    <input type="file" id="file3" name="file" onchange="showPicture3(this.value)" style="height: 66px;">
+                    <span class="s3 add-image-btn_cancel"></span>
+
+                    <img src="images/my_sale_up.png" id="myPic4">
+                    <input type="file" id="file4" name="file" onchange="showPicture4(this.value)" style="height: 66px;">
+                    <span class="s4 add-image-btn_cancel"></span>
+
+                    <img src="images/my_sale_up.png" id="myPic5">
+                    <input type="file" id="file5" name="file" onchange="showPicture5(this.value)" style="height: 66px;">
+                    <span class="s5 add-image-btn_cancel"></span>
+
+                    <img src="images/my_sale_up.png" id="myPic6">
+                    <input type="file" id="file6" name="file" onchange="showPicture6(this.value)" style="height: 66px;">
+                    <span class="s6 add-image-btn_cancel"></span>
+
+                    <img src="images/my_sale_up.png" id="myPic7">
+                    <input type="file" id="file7" name="file" onchange="showPicture7(this.value)" style="height: 66px;">
+                    <span class="s7 add-image-btn_cancel"></span>
+
+                    <img src="images/my_sale_up.png" id="myPic8">
+                    <input type="file" id="file8" name="file" onchange="showPicture8(this.value)" style="height: 66px;">
+                    <span class="s8 add-image-btn_cancel"></span>
+
+                    <img src="images/my_sale_up.png" id="myPic9">
+                    <input type="file" id="file9" name="file" onchange="showPicture9(this.value)" style="height: 66px;">
+                    <span class="s9 add-image-btn_cancel"></span>
+                </div>
+            </li>
+        </ul>
+
+        <div class='works_btnlist'>
+            <p class='btn_left'><img src="./images/bind_btn01.png" alt=""><b>取消</b></p>
+            <p class='btn_right'><img src="./images/bind_btn02.png" alt=""><b>发布</b></p>
+        </div>
+    </div>
+
+
+    <script src="js/rem.js"></script>
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="js/photo.js"></script>
+    <script>
+        $(document).ready(function () {
+            var spans = document.getElementsByClassName('add-image-btn_cancel');
+            for (var i in spans) {
+                spans[i].id = "s" + i;
+                $("#" + 's' + i).each(function () {
+                    $(this).click(function () {
+                        var num = parseInt(this.id.replace(/[^0-9]/ig, ""));
+                        $(this).hide();
+                        $("#" + 'file' + parseInt(num + 1)).val("").css("opacity", "0");
+                        $("#" + 'myPic' + parseInt(num + 1)).attr("src",
+                            "images/my_sale_up.png");
+                        $("#" + 'file' + parseInt(num + 2)).css("display", "none");
+                        $("#" + 'myPic' + parseInt(num + 2)).css("display", "none");
+                        $("." + 's' + parseInt(num)).show();
+                        $("#" + 'file' + parseInt(num + 1)).css("display", "block");
+                    });
+                });
+            }
+        });
+        var imgHigh = $(".img-avatar img").width();
+        $(".img-avatar,.btn-normal,.img-avatar img").height(imgHigh);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<!--uc强制竖屏-->
+	<meta name="screen-orientation" content="portrait">
+	<!--QQ强制竖屏-->
+	<meta name="x5-orientation" content="portrait">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<link rel="stylesheet" href="css/public.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>手机绑定</title>
+</head>
+
+<body class="bg_color03">
+	<div class="hd">
+		<a href=""><img src="images/public_lt.png" alt=""></a>
+		<h4>手机绑定</h4>
+	</div>
+	<div class="bind_content">
+		<img class="bind_bg" src="images/bind_bg.png" alt="">
+		<div class="bind_subject">
+			<h4>绑定手机号码</h4>
+			<ul>
+				<li>
+					<img src="images/bind_img01.png" alt="">
+					<input class="bind_phone" type="text" placeholder="请输入手机号码">
+				</li>
+				<li>
+					<img src="images/bind_img02.png" alt="">
+					<input class="bind_code" type="text" placeholder="请输入验证码">
+					<input class="bind_send" type="button" readonly="readonly" value="获取验证码">
+				</li>
+			</ul>
+			<div class="bind_confirm">
+				<p>
+					<img src="images/bind_btn01.png" alt="">
+					<span>立即加入</span>
+				</p>
+			</div>
+			<p class="bind_agree"><img src="images/bind_no.png" alt="">同意<span>会员中心细则</span></p>
+		</div>
+		<img class="bind_man" src="images/bind_img03.png" alt="">
+
+		<div class="mask"></div>
+		<div class="dialog order_dialog">
+			<h3 class='exchange_title'><img src="./images/exchange_title_icon1.png" alt=""><span>商品详情</span><img
+					src="./images/exchange_title_icon2.png" alt=""></h3>
+			<div class='mask_area'>
+				<p>1．Brick Hero微信会员中心说明：任何关注Brick Hero官方微信账号的微信用户均有资格注册加入Brick Hero微信会员中心。Brick
+					Hero微信会员中心将严格遵守中华人民共和国的相关法律及法规。您注册成为Brick Hero微信会员，表示您无条件同意完全遵守本微信会员中心条款细则。Brick
+					Hero微信会员中心是乐高集团授权的经销商针对LEGO粉丝推出的专属会员系统。Brick Hero微信会员中心向会员提供专属特权福利，并会不定期推出各种有奖会员活动。
+				</p>
+				<p> 2．Brick Hero微信会员中心主体：
+				</p>
+			</div>
+			<p class='button2'><b>我知道了</b><img src="./images/binding_maskicon1.png" alt=""></p>
+		</div>
+	</div>
+
+	<div class="mask1"></div>
+	<div class="index_cover" style='display: none;'>
+		<h3 class='txtTittle'>请完整填写信息</h4>
+			<button class='index_cover_btn'>我知道了</button>
+	</div>
+
+	<script src="js/rem.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+		$(function () {
+			$(".bind_send").click(function () {
+				code()
+			})
+			/*验证码倒计时*/
+			function code(obj) {
+				obj = obj || $("input[type=button]");
+				var num = 60;
+				var timer = setInterval(function () {
+					if (num > 1) {
+						num--;
+						obj.val(num + "s").attr("disabled", "disabled");
+					} else {
+						obj.val("重新发送").removeAttr("disabled");
+						clearInterval(timer);
+					}
+				}, 1000)
+			};
+			$(".bind_confirm").click(function () {
+				$(".mask1").addClass("mask--visible");
+				$("html,body").css("overflow", "hidden");
+				$(".index_cover").css("display", "block");
+			});
+			$(".index_cover_btn").click(function () {
+				$(".mask1").removeClass("mask--visible");
+				$("html,body").css("overflow", "auto");
+				$(".index_cover").css("display", "none");
+			});
+
+
+
+			$(".bind_agree ").click(function () {
+				$(".mask").css('display', 'block')
+				// $(".mask").addClass("dialog--visible");
+				$(".dialog").addClass("dialog--visible");
+			})
+			$(".button2").click(function () {
+				$(".mask").css('display', 'none')
+				$(".dialog").removeClass("dialog--visible");
+			})
+		})
+	</script>
+</body>
+
+</html>
