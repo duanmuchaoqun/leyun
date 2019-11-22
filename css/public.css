@@ -146,13 +146,15 @@ a {
 	width: 4rem;
 }
 
-
+.active_success{
+	margin-bottom:.6rem
+}
 .index_cover h3{
 	color: #000;
     font-size: .65rem;
     font-weight: normal;
-    margin-bottom: 1rem;
-    margin-top: 0.6rem;
+    margin-bottom: .6rem;
+    margin-top: 1.4rem;
 }
 .index_cover_btn{
 	background:#FACF02;

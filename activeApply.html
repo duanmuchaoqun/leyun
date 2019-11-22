@@ -40,12 +40,57 @@
     </div>
 
 
-
+    <div class="mask1"></div>
+    <div class="index_cover" style='display: none;'>
+        <img src="./images/active_close.png" class="active_close">
+        <h3 class='txtTittle'>您之前是否玩过乐高？</h3>
+            <ul class="active_pick">
+                <li class='activeYeah '>是</li>
+                <li class='activeNo'>否</li>
+            </ul>
+            <p class='activeApply_btn'><img src="./images/bind_btn01.png" class="activeApply_bg"><b>确认报名</b></p>
+    </div>
+    <div class="index_cover1" style="display: none;">
+        <img src="./images/active_close.png" class="active_close">
+        <img src="./images/activeApply_icon2.png" alt="">
+        <h3 class='active_success'>您已成功报名</h3>
+       
+    </div>
 
     <script src="js/rem.js"></script>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script>
+        $(".activeApply_bottom").click(function () {
+            $(".mask1").addClass("mask--visible");
+            $("html,body").css("overflow", "hidden");
+            $(".index_cover").css("display", "block");
+        });
+        $(".index_cover_btn").click(function () {
+            $(".mask1").removeClass("mask--visible");
+            $("html,body").css("overflow", "auto");
+            $(".index_cover").css("display", "none");
+        });
 
+        $('.active_pick li').click(function () {
+            $('.activeApply_bg').attr('src', './images/bind_btn02.png')
+            if ($('.active_pick li').hasClass('pick_Color')) {
+                $('.active_pick li').removeClass('pick_Color')
+            }
+            $(this).toggleClass('pick_Color')
+        })
+
+        $('.activeApply_btn').click(function () {
+            $(".mask1").addClass("mask--visible");
+            $("html,body").css("overflow", "hidden");
+            $(".index_cover").css("display", "none");
+            $(".index_cover1").css("display", "block");
+        })
+        $('.active_close').click(function(){
+            $(".mask1").removeClass("mask--visible");
+            $("html,body").css("overflow", "auto");
+            $(".index_cover").css("display", "none");
+            $(".index_cover1").css("display", "none");
+        })
     </script>
 </body>
 

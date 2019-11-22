@@ -199,13 +199,15 @@
 	width: 100%;
 }
 
-.index_cover {
+.index_cover,.index_cover1 {
 	position: fixed;
 	top: 10rem;
 	left: 18%;
 	width: 100%;
 	z-index: 1002;
 	width: 66%;
+	border-radius: 0.4rem;
+	/* position: relative; */
 }
 
 .index_cover2 {
@@ -216,13 +218,20 @@
 	z-index: 1002;
 	width: 90%;
 }
-
-.index_cover {
+.index_cover1 img:last-of-type{
+	height: 4rem;
+    width: 4rem;
+	margin-top: 1.6rem;
+    margin-bottom: .6rem;
+    margin-left: 1.4rem;
+}
+.index_cover,.index_cover1 {
 	background: #fff;
 }
 
 .index_cover h4,
-.index_cover2 h4 {
+.index_cover2 h4 
+{
 	color: #fff;
 	font-size: .65rem;
 	font-weight: normal;
@@ -232,9 +241,11 @@
 .index_cover_btn,
 .index_cover_btn2 {
 	width: 37%;
-	height: 2rem;
-	position: relative;
-	margin-bottom: 0.8rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    position: relative;
+    margin-bottom: 0.8rem;
+    text-align: center;
 }
 
 .index_cover_btn2 {
@@ -2815,9 +2826,9 @@ a:hover {
 .activeApply_bottom{
 	position: fixed;
     bottom: 0rem;
-    left: 10%;
+	left: 10%;
 }
-.activeApply_bottom img{
+.activeApply_bottom>img{
     height: 1.6rem;
     width: 4.3rem;
 }
@@ -2827,7 +2838,7 @@ a:hover {
     line-height: 1.6rem;
     display: inline-block;
     position: relative;
-    top: -.6rem;
+    top: -.68rem;
     left: 4.5rem;
 }.active_center{
 	background: #92959E;
@@ -2835,4 +2846,55 @@ a:hover {
 	height:11rem;
 	margin-bottom: 3rem;
     margin-top: 1rem;
+}
+.active_center img{
+	max-width:100%
+}
+
+.active_pick{
+	display: flex;
+}
+.active_pick li{
+    min-width: 2.6rem;
+    line-height: 1.2rem;
+    height: 1.2rem;
+    padding: 0 .3rem;
+    border: .1rem solid #000;
+    border-radius: .25rem;
+	margin-bottom: .8rem;
+    cursor: pointer;
+    font-size: .55rem;
+}
+.activeYeah{
+	margin-left: 1.5rem;
+}
+.activeNo{
+	margin-right:1.5rem;
+}
+.activeApply_btn img{
+	height: 1.5rem;
+    width: 4rem;
+}
+.activeApply_btn{
+	height: 1.5rem;
+	width: 4rem;
+	position: relative;
+	margin-bottom: .6rem;
+}
+.activeApply_btn b{
+	height: 1.5rem;
+	line-height: 1.4rem;
+	width: 4rem;
+	position: absolute;
+	display: inline-block;
+	left:1%
+}
+.active_pick .pick_Color{
+	background:#FACF02
+}
+.active_close{
+	float: right;
+    height: 1rem;
+    margin-right: .4rem;
+    margin-top: .4rem;
 }
