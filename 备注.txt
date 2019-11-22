@@ -28,3 +28,5 @@ style.css   样式表1
 个人信息     information
 订单详情     myOrderDetail
 作品发布     PublicationWorks
+热门活动     hotActive
+活动报名     activeApply
